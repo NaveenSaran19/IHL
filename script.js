@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             var options = {
                 "key": "rzp_test_T93qBIrsJeBWvV", // Test API Key
                 "secret": "13a7F7mACBIxfN9Nt3eZbCg8", // Test Key Secret (Note: usually used on the backend)
-                "amount": "4999", // Amount in subunits (Minimum is 100 for 1 INR)
+                "amount": "499999", // Amount in subunits (Minimum is 100 for 1 INR)
                 "currency": "INR",
                 "name": "Institute of Health & Longevity",
                 "description": "Health & Longevity Workshop",
