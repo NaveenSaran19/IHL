@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showStep('successStep');
                 },
                 "theme": {
-                    "color": "#21493D"
+                    "color": "#1E2A3D"
                 }
             };
             if(window.Razorpay) {
