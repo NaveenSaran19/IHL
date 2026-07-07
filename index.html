@@ -16,7 +16,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="image/ihl_logo.png" alt="IHL Logo" class="logo-img">
+                <img src="image/logo.jpg" alt="IHL Logo" class="logo-img">
                 <span class="logo-text">IHL</span>
             </div>
             <ul class="nav-links" id="navLinks">
@@ -171,25 +171,89 @@
                 <div class="title-underline"></div>
             </div>
             <div class="expert-grid">
-                <div class="expert-card">
-                    <div class="expert-icon"><i class="bi bi-person-circle text-accent"></i></div>
-                    <h4>Dr. Priya</h4>
-                    <p class="expert-role">Medical Evaluation & Preventive Care</p>
+                <!-- Expert 1 -->
+                <div class="expert-card" data-expert="preyeamvadha">
+                    <div class="expert-image-wrapper">
+                        <img src="image/dr_preyeamvadha.png" alt="Dr. Preyeamvadha R" class="expert-img" onerror="this.src='https://ui-avatars.com/api/?name=Dr+Preyeamvadha&background=C2A35C&color=fff&size=120'">
+                    </div>
+                    <h4>Dr. Preyeamvadha R</h4>
+                    <p class="expert-role">Pediatrician | Researcher | Healthy Longevity Advocate</p>
+                    <div class="expert-popup-overlay"></div>
+                    <div class="expert-popup">
+                        <button class="close-popup"><i class="bi bi-x"></i></button>
+                        <div class="expert-popup-content">
+                            <div class="popup-header">
+                                <img src="image/dr_preyeamvadha.png" alt="Dr. Preyeamvadha R" onerror="this.src='https://ui-avatars.com/api/?name=Dr+Preyeamvadha&background=C2A35C&color=fff&size=120'">
+                                <div>
+                                    <h5>Dr. Preyeamvadha R</h5>
+                                    <p class="expert-main-line">Pediatrician | Researcher | Healthy Longevity Advocate</p>
+                                </div>
+                            </div>
+                            <p class="popup-desc">With over 15 years of clinical experience in pediatrics, neonatology, and developmental medicine, Dr. Preyeamvadha combines clinical expertise with research in genetics, metabolism, obesity, aging, and preventive medicine. As an Associate Professor, researcher, and author, she is passionate about making evidence-based longevity science accessible and practical for everyone.</p>
+                            <h6>Supporting your healthy longevity journey through:</h6>
+                            <ul class="popup-list">
+                                <li><strong>Educate</strong> – Simplifying the latest longevity science into practical, evidence-based strategies for everyday life.</li>
+                                <li><strong>Evaluate</strong> – Assessing your healthspan through comprehensive anthropometric measurements, vital parameters, functional assessments, and biochemical biomarkers.</li>
+                                <li><strong>Personalize</strong> – Developing an individualized longevity profile with targeted recommendations to promote healthy aging and long-term well-being.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="expert-card">
-                    <div class="expert-icon"><i class="bi bi-person-circle text-accent"></i></div>
-                    <h4>Arthy Sivasalapathy</h4>
-                    <p class="expert-role">Nutritionist - Metabolism & Habits</p>
+                <!-- Expert 2 -->
+                <div class="expert-card" data-expert="kirthiga">
+                    <div class="expert-image-wrapper">
+                        <img src="image/kirthiga.png" alt="Mrs. Kirthiga Prakash" class="expert-img" onerror="this.src='https://ui-avatars.com/api/?name=Kirthiga+Prakash&background=C2A35C&color=fff&size=120'">
+                    </div>
+                    <h4>Mrs. Kirthiga Prakash</h4>
+                    <p class="expert-role">Counselling Psychologist | Mental health expert</p>
+                    <div class="expert-popup-overlay"></div>
+                    <div class="expert-popup">
+                        <button class="close-popup"><i class="bi bi-x"></i></button>
+                        <div class="expert-popup-content">
+                            <div class="popup-header">
+                                <img src="image/kirthiga.png" alt="Mrs. Kirthiga Prakash" onerror="this.src='https://ui-avatars.com/api/?name=Kirthiga+Prakash&background=C2A35C&color=fff&size=120'">
+                                <div>
+                                    <h5>Mrs. Kirthiga Prakash</h5>
+                                    <p class="expert-main-line">Counselling Psychologist | Mental health expert</p>
+                                </div>
+                            </div>
+                            <p class="popup-desc">With over 9 years of experience in counselling psychology, Mrs. Kirthiga Prakash specializes in fostering emotional well-being, resilience, and positive behavioural change. Having conducted 200+ workshops across Tamil Nadu, she combines psychological expertise with practical guidance to help individuals build healthier minds and healthier lives.</p>
+                            <h6>Supporting your healthy longevity journey through:</h6>
+                            <ul class="popup-list">
+                                <li><strong>Understand</strong> – Helping you recognize emotional patterns, stress triggers, and the connection between mental well-being and healthy aging.</li>
+                                <li><strong>Strengthen</strong> – Building emotional resilience, healthy coping strategies, and effective communication skills for everyday life.</li>
+                                <li><strong>Empower</strong> – Providing personalized guidance and practical techniques to support lasting behavioural change and lifelong mental wellness.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="expert-card">
-                    <div class="expert-icon"><i class="bi bi-person-circle text-accent"></i></div>
-                    <h4>Thangavel</h4>
-                    <p class="expert-role">Fitness - Strength & Mobility</p>
-                </div>
-                <div class="expert-card">
-                    <div class="expert-icon"><i class="bi bi-person-circle text-accent"></i></div>
-                    <h4>Dr. Kirthika</h4>
-                    <p class="expert-role">Clinical Psychologist - Stress & Behavior</p>
+                <!-- Expert 3 -->
+                <div class="expert-card" data-expert="arthy">
+                    <div class="expert-image-wrapper">
+                        <img src="image/arthy.png" alt="Ms. Arthy Sahitya S" class="expert-img" onerror="this.src='https://ui-avatars.com/api/?name=Arthy+Sahitya&background=C2A35C&color=fff&size=120'">
+                    </div>
+                    <h4>Ms. Arthy Sahitya S</h4>
+                    <p class="expert-role">Clinical Nutritionist | Integrative Hormone Health Coach</p>
+                    <div class="expert-popup-overlay"></div>
+                    <div class="expert-popup">
+                        <button class="close-popup"><i class="bi bi-x"></i></button>
+                        <div class="expert-popup-content">
+                            <div class="popup-header">
+                                <img src="image/arthy.png" alt="Ms. Arthy Sahitya S" onerror="this.src='https://ui-avatars.com/api/?name=Arthy+Sahitya&background=C2A35C&color=fff&size=120'">
+                                <div>
+                                    <h5>Ms. Arthy Sahitya S</h5>
+                                    <p class="expert-main-line">Clinical Nutritionist | Integrative Hormone Health Coach</p>
+                                </div>
+                            </div>
+                            <p class="popup-desc">With over 5 years of clinical experience, Ms. Arthy Sahitya specializes in personalized nutrition, metabolic health, and hormone wellness. Having guided 1,000+ clients across India, the UK, and the USA, she combines evidence-based nutrition with practical, sustainable lifestyle strategies to help individuals achieve lasting health and healthy aging.</p>
+                            <h6>Supporting your healthy longevity journey through:</h6>
+                            <ul class="popup-list">
+                                <li><strong>Assess</strong> – Evaluating your dietary habits, nutritional gaps, metabolic health, and lifestyle patterns to understand your unique nutritional needs.</li>
+                                <li><strong>Nourish</strong> – Helping you build a sustainable, personalized approach to nutrition that supports energy, metabolic health, muscle health, and hormonal balance.</li>
+                                <li><strong>Transform</strong> – Providing practical, evidence-based nutrition strategies that empower lifelong healthy eating habits and long-term well-being.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,11 +269,19 @@
                 <div class="check-item"><span class="check">✔</span> Business owners</div>
                 <div class="check-item"><span class="check">✔</span> Anyone with stress, fatigue, or lifestyle concerns</div>
                 <div class="check-item"><span class="check">✔</span> Anyone who wants to catch problems before symptoms do</div>
+                <div class="check-item" style="grid-column: 1 / -1; justify-content: center; background: rgba(194, 163, 92, 0.05); border-color: var(--accent);"><span class="check">✔</span> Health-conscious individuals who want to age well</div>
             </div>
 
             <div class="cta-box mt-5">
                 <div class="cta-content">
-                    <div class="price-badge">Special Price <br><strong>₹4,999</strong></div>
+                    <div class="pricing-info" style="margin-bottom: 30px;">
+                        <h4 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 5px;">Comprehensive Health Assessment</h4>
+                        <p style="font-size: 1.1rem; color: var(--neutral); opacity: 0.7; margin-bottom: 15px; text-decoration: line-through;">Worth ₹7,000+</p>
+                        <p style="font-size: 1.1rem; color: var(--neutral); margin-bottom: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;">Your investment special price</p>
+                        <div class="price-badge" style="display: inline-block; padding: 10px 30px; border-radius: 12px; margin-bottom: 0;">
+                            <strong style="font-size: 2.5rem; display: block; margin-top: 0;">₹4,999</strong>
+                        </div>
+                    </div>
                     <h3>Limited Seats Available</h3>
                     <button class="btn btn-primary btn-large register-trigger mt-3">Register Now</button>
                     <p class="mt-4 text-muted">Your registration includes a comprehensive preventive health experience that extends beyond a typical workshop.</p>
@@ -312,9 +384,15 @@
                     <div class="workshop-summary">
                         <p>📅 26 July 2026</p>
                         <p>📍 Kovaipudur</p>
-                        <p class="price-text">₹4,999</p>
+                        <div class="price-text" style="margin-top: 15px;">
+                            <span style="font-size: 0.8rem; color: var(--neutral); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 2px;">Launch Offer</span>
+                            ₹4,999
+                        </div>
                     </div>
-                    <p class="modal-desc">Includes: pre-workshop blood investigations, full health assessment, IHL Health Score, expert consultations, meals, and your personalized health report.</p>
+                    <div class="modal-desc" style="background: rgba(194, 163, 92, 0.1); padding: 15px; border-left: 4px solid var(--accent); border-radius: 5px; margin-bottom: 25px;">
+                        <strong style="color: var(--primary); display: block; margin-bottom: 5px;"><i class="bi bi-star-fill text-accent" style="margin-right: 5px;"></i>Includes:</strong>
+                        pre-workshop blood investigations, full health assessment, IHL Health Score, expert consultations, meals, and your personalized health report.
+                    </div>
                     <button class="btn btn-primary w-100 next-step" data-next="step2">Continue &rarr;</button>
                 </div>
 
@@ -430,8 +508,9 @@
     <div class="sticky-register-bar" id="stickyBar">
         <div class="bar-content">
             <div class="bar-text">
-                <strong>Health & Longevity Workshop</strong>
-                <span>₹4,999 | 26 July 2026</span>
+                <strong>Launch Offer: ₹4,999</strong>
+                <span class="desktop-only">Includes pre workshop... | </span> 
+                <span id="countdownTimer" class="countdown-timer"></span>
             </div>
             <button class="btn btn-primary register-trigger">Register Now</button>
         </div>

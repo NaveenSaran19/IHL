@@ -176,6 +176,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Expert Popups
+    const expertCards = document.querySelectorAll('.expert-card');
+    
+    expertCards.forEach(card => {
+        const popup = card.querySelector('.expert-popup');
+        const overlay = card.querySelector('.expert-popup-overlay');
+        
+        // Move popup and overlay to the body to fix CSS transform context bugs
+        if (popup && overlay) {
+            document.body.appendChild(overlay);
+            document.body.appendChild(popup);
+        }
+
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.close-popup')) return;
+            
+            if (popup && overlay) {
+                popup.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+        
+        if (popup && overlay) {
+            const closeBtn = popup.querySelector('.close-popup');
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    popup.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            overlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                popup.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Prevent clicks inside popup from bubbling up or closing it
+            popup.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+    });
+
+    // Countdown Timer
+    const countdownTimer = document.getElementById('countdownTimer');
+    if (countdownTimer) {
+        // Set target date to July 26, 2026
+        const targetDate = new Date('July 26, 2026 23:59:59').getTime();
+        
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            if (distance < 0) {
+                countdownTimer.innerHTML = "Offer Expired";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            countdownTimer.innerHTML = `
+                <div class="countdown-box"><span class="val">${days}</span><span class="label">Days</span></div>
+                <div class="countdown-box"><span class="val">${hours.toString().padStart(2, '0')}</span><span class="label">Hrs</span></div>
+                <div class="countdown-box"><span class="val">${minutes.toString().padStart(2, '0')}</span><span class="label">Mins</span></div>
+                <div class="countdown-box"><span class="val">${seconds.toString().padStart(2, '0')}</span><span class="label">Secs</span></div>
+            `;
+        };
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
     // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');

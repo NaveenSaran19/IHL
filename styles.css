@@ -162,6 +162,8 @@ a {
 .logo-img {
     height: 40px;
     width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen; /* Removes black background of JPGs on dark navbars */
 }
 
 .logo-text {
@@ -579,9 +581,165 @@ a {
     border-bottom: 4px solid var(--accent);
 }
 
-.expert-icon {
-    font-size: 50px;
+.expert-image-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.expert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Expert Popup */
+.expert-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 42, 61, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.expert-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.expert-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    background: var(--white);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 15px;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.expert-popup.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+}
+
+.expert-popup .close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: var(--neutral);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.expert-popup .close-popup:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.expert-popup-content {
+    padding: 30px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.popup-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.popup-header h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.expert-main-line {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.popup-desc {
+    color: var(--neutral);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.expert-popup-content h6 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.popup-list {
+    list-style: none;
+}
+
+.popup-list li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 25px;
+}
+
+.popup-list li::before {
+    content: "•";
+    color: var(--accent);
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.popup-list li strong {
+    color: var(--primary);
+}
+
+.expert-icon {
+    display: none;
 }
 
 .expert-role {
@@ -830,9 +988,44 @@ a {
     margin-right: 15px;
 }
 
-.bar-text span {
+.bar-text span.desktop-only {
     color: var(--neutral);
     font-size: 0.9rem;
+}
+
+.countdown-timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.countdown-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: var(--white);
+    padding: 6px 10px;
+    border-radius: 8px;
+    min-width: 50px;
+    box-shadow: 0 4px 10px rgba(194, 163, 92, 0.3);
+}
+
+.countdown-box .val {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.countdown-box .label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
 }
 
 /* Modal */
