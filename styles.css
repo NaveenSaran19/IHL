@@ -2,8 +2,9 @@
     --primary: #1E2A3D;
     --secondary: #111822; /* Dark navy */
     --background: #ffffff; /* White background */
-    --accent: #1E2A3D; /* Deep Navy Accent */
-    --neutral: #1E2A3D; /* Navy Blue for text */
+    --accent: #C2A35C; /* Muted Gold Accent */
+    --neutral: #334155; /* Slate Navy for body text */
+    --heading-color: #1E2A3D; /* Deep Navy for headings */
     --white: #ffffff;
     --light-gray: #f5f6f8; /* Light contrast */
     --transition: all 0.3s ease;
@@ -32,7 +33,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
-    color: var(--neutral);
+    color: var(--heading-color);
 }
 
 .font-playfair {
@@ -53,13 +54,18 @@ a {
 
 .section {
     padding: 100px 0;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.section:hover {
+    box-shadow: inset 0 0 50px rgba(194, 163, 92, 0.08);
 }
 
 .text-center { text-align: center; }
 .text-white { color: var(--white); }
 .text-accent { color: var(--accent); }
 .bg-light { background-color: var(--white); }
-.bg-dark { background-color: var(--background); }
+.bg-dark { background-color: var(--light-gray); }
 .mt-3 { margin-top: 1rem; }
 .mt-4 { margin-top: 1.5rem; }
 .mt-5 { margin-top: 3rem; }
@@ -72,7 +78,7 @@ a {
 .btn {
     display: inline-block;
     padding: 12px 28px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
     border: none;
@@ -87,9 +93,10 @@ a {
 }
 
 .btn-primary:hover {
-    background-color: var(--secondary); /* Dark Navy */
+    background-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(30, 42, 61, 0.4);
+    box-shadow: 0 4px 15px rgba(194, 163, 92, 0.4);
+    filter: brightness(1.05);
 }
 
 .btn-primary:disabled {
@@ -103,6 +110,32 @@ a {
     background-color: transparent;
     border: 2px solid var(--white);
     color: var(--white);
+}
+
+.btn-outline-accent {
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(194, 163, 92, 0.4);
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.btn-white:hover {
+    background-color: var(--light-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 .btn-outline:hover {
@@ -133,14 +166,14 @@ a {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--primary);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: var(--transition);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(30, 42, 61, 0.98);
     box-shadow: var(--shadow);
 }
 
@@ -163,14 +196,21 @@ a {
     height: 40px;
     width: auto;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Removes white background of JPGs on light navbars */
+    background: transparent;
+    padding: 0;
+    border-radius: 50%;
 }
 
 .logo-text {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary);
+    font-size: 1.2rem;
+    color: var(--white);
+    white-space: nowrap;
+}
+
+.mobile-only {
+    display: none;
 }
 
 .nav-links {
@@ -181,14 +221,33 @@ a {
 
 .nav-links a {
     font-weight: 500;
-    color: var(--secondary);
+    color: var(--white);
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent);
+    text-shadow: 0 0 10px rgba(194, 163, 92, 0.4);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* Hero Section */
@@ -248,7 +307,7 @@ a {
     display: inline-block;
     padding: 6px 15px;
     background: rgba(255, 255, 255, 0.15);
-    border: 1px solid var(--white);
+    border: 1px solid var(--accent);
     color: var(--white);
     border-radius: 30px;
     font-size: 14px;
@@ -343,6 +402,16 @@ a {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.section-title:hover {
+    transform: scale(1.02);
+    text-shadow: 0 5px 15px rgba(194, 163, 92, 0.2);
+}
+
+.final-cta .section-title:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .section-title em {
@@ -359,14 +428,14 @@ a {
 
 /* Problem Section */
 .problem {
-    background-color: var(--primary);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--neutral);
 }
 .problem h2 {
-    color: var(--white);
+    color: var(--heading-color);
 }
 .problem h2 em {
-    color: var(--white);
+    color: var(--accent);
 }
 .problem-content {
     max-width: 800px;
@@ -377,8 +446,11 @@ a {
 .lead-text {
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--white);
+    color: var(--neutral);
     margin-bottom: 30px;
+}
+.final-cta .lead-text {
+    color: var(--white);
 }
 
 .symptom-tags {
@@ -922,35 +994,86 @@ a {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
 }
 
 .footer-brand h3 {
-    color: var(--white);
+    color: var(--accent);
     font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
 }
 
 .footer-brand p {
     opacity: 0.7;
 }
 
-.footer-contact p {
-    margin-bottom: 10px;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
     opacity: 0.9;
+    transition: var(--transition);
 }
 
-.social-link {
-    display: block;
-    margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-.social-link:hover {
-    color: var(--white);
+.contact-item:hover {
     opacity: 1;
+    transform: translateX(5px);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item a {
+    color: inherit;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+.contact-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+.contact-item a:hover::after {
+    width: 100%;
+}
+
+.social-link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,0.05);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-link-icon:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(194, 163, 92, 0.3);
 }
 
 .footer-bottom {
@@ -1024,6 +1147,8 @@ a {
     font-size: 1.2rem;
     font-weight: 700;
     line-height: 1;
+    display: block;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .countdown-box .label {
@@ -1062,11 +1187,12 @@ a {
     color: var(--neutral);
     width: 90%;
     max-width: 500px;
+    max-height: 90vh;
     border-radius: 20px;
     position: relative;
     transform: translateY(30px);
     transition: var(--transition);
-    overflow: hidden;
+    overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
@@ -1317,7 +1443,7 @@ a {
     background: transparent;
     border: none;
     font-size: 28px;
-    color: var(--primary);
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -1331,7 +1457,7 @@ a {
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--white);
+        background: var(--primary);
         flex-direction: column;
         gap: 0;
         text-align: center;
@@ -1347,7 +1473,7 @@ a {
     
     .nav-links li {
         padding: 15px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     
     .nav-cta {
@@ -1371,8 +1497,62 @@ a {
         grid-template-columns: 1fr;
     }
     
-    .bar-text span {
-        display: none;
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: inline-block !important;
+    }
+    
+    .logo-text.mobile-only {
+        font-size: 1.2rem;
+    }
+    
+    .sticky-register-bar {
+        padding: 8px 5px;
+    }
+    
+    .bar-text {
+        gap: 4px;
+        margin-right: 0;
+    }
+    
+    .bar-text strong {
+        font-size: 0.8rem;
+        margin-right: 5px;
+        white-space: nowrap;
+    }
+
+    .countdown-timer {
+        gap: 3px;
+        margin-left: 0;
+    }
+
+    .countdown-box {
+        padding: 3px 4px;
+        min-width: 32px;
+    }
+    
+    .countdown-box .val {
+        font-size: 0.85rem;
+    }
+    
+    .countdown-box .label {
+        font-size: 0.5rem;
+    }
+    
+    .bar-content {
+        gap: 5px;
+        padding: 0 5px;
+        flex-wrap: nowrap;
+    }
+    
+    .sticky-register-bar .btn {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        min-width: fit-content;
     }
 }
 
@@ -1381,7 +1561,7 @@ a {
     position: fixed;
     bottom: 90px;
     left: 20px;
-    background: var(--primary);
+    background: #25D366;
     color: white;
     width: 55px;
     height: 55px;
@@ -1398,6 +1578,7 @@ a {
 .floating-whatsapp:hover {
     transform: scale(1.1);
     color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
 }
 
 .scroll-top {
@@ -1428,24 +1609,26 @@ a {
 }
 
 .scroll-top:hover {
-    background: var(--primary);
+    background: var(--accent);
     transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(194, 163, 92, 0.5);
+    filter: brightness(1.05);
 }
 
 @media (max-width: 768px) {
     .floating-whatsapp {
-        width: 48px;
-        height: 48px;
-        font-size: 24px;
-        bottom: 80px;
-        left: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 75px;
+        left: 10px;
     }
     
     .scroll-top {
-        width: 42px;
-        height: 42px;
-        font-size: 20px;
-        bottom: 80px;
-        right: 15px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        bottom: 75px;
+        right: 10px;
     }
 }
