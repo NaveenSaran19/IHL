@@ -302,33 +302,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Countdown Timer
-    const countdownTimer = document.getElementById('countdownTimer');
-    if (countdownTimer) {
-        countdownTimer.innerHTML = `
-            <div class="countdown-box"><span class="val" id="cd-days">00</span><span class="label">Days</span></div>
-            <div class="countdown-box"><span class="val" id="cd-hours">00</span><span class="label">Hrs</span></div>
-            <div class="countdown-box"><span class="val" id="cd-mins">00</span><span class="label">Mins</span></div>
-            <div class="countdown-box"><span class="val" id="cd-secs">00</span><span class="label">Secs</span></div>
-        `;
+    // Countdown Timers
+    const countdownContainers = document.querySelectorAll('.countdown-timer');
+    if (countdownContainers.length > 0) {
+        countdownContainers.forEach(container => {
+            container.innerHTML = `
+                <div class="countdown-box"><span class="val cd-days">00</span><span class="label">Days</span></div>
+                <div class="countdown-box"><span class="val cd-hours">00</span><span class="label">Hrs</span></div>
+                <div class="countdown-box"><span class="val cd-mins">00</span><span class="label">Mins</span></div>
+                <div class="countdown-box"><span class="val cd-secs">00</span><span class="label">Secs</span></div>
+            `;
+        });
         
         const targetDate = new Date('July 26, 2026 23:59:59').getTime();
         
-        const animateUpdate = (elementId, newValue) => {
-            const el = document.getElementById(elementId);
-            if (!el) return;
-            if (el.innerText !== newValue) {
-                el.style.transform = 'translateY(-10px)';
-                el.style.opacity = '0';
-                setTimeout(() => {
-                    el.innerText = newValue;
-                    el.style.transform = 'translateY(10px)';
+        const animateUpdate = (className, newValue) => {
+            document.querySelectorAll(className).forEach(el => {
+                if (el.innerText !== newValue) {
+                    el.style.transform = 'translateY(-10px)';
+                    el.style.opacity = '0';
                     setTimeout(() => {
-                        el.style.transform = 'translateY(0)';
-                        el.style.opacity = '1';
-                    }, 50);
-                }, 200);
-            }
+                        el.innerText = newValue;
+                        el.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            el.style.transform = 'translateY(0)';
+                            el.style.opacity = '1';
+                        }, 50);
+                    }, 200);
+                }
+            });
         };
 
         const updateCountdown = () => {
@@ -336,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const distance = targetDate - now;
             
             if (distance < 0) {
-                countdownTimer.innerHTML = "Offer Expired";
+                countdownContainers.forEach(c => c.innerHTML = "Offer Expired");
                 return;
             }
             
@@ -345,19 +347,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             const seconds = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
             
-            animateUpdate('cd-days', days);
-            animateUpdate('cd-hours', hours);
-            animateUpdate('cd-mins', minutes);
-            animateUpdate('cd-secs', seconds);
+            animateUpdate('.cd-days', days);
+            animateUpdate('.cd-hours', hours);
+            animateUpdate('.cd-mins', minutes);
+            animateUpdate('.cd-secs', seconds);
         };
         
         const now = new Date().getTime();
         const distance = targetDate - now;
         if(distance > 0) {
-            document.getElementById('cd-days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString();
-            document.getElementById('cd-hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById('cd-mins').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById('cd-secs').innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            document.querySelectorAll('.cd-days').forEach(el => el.innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString());
+            document.querySelectorAll('.cd-hours').forEach(el => el.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0'));
+            document.querySelectorAll('.cd-mins').forEach(el => el.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0'));
+            document.querySelectorAll('.cd-secs').forEach(el => el.innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0'));
         }
         
         setInterval(updateCountdown, 1000);
