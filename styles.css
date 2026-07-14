@@ -21,8 +21,11 @@ html {
     scroll-behavior: smooth;
 }
 
+body, input, button, textarea, select {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    font-family: 'Outfit', sans-serif;
     background-color: var(--background);
     color: var(--neutral);
     line-height: 1.6;
@@ -251,14 +254,14 @@ a {
 }
 
 /* Hero Section */
-.hero {
+.hero-new {
     min-height: 100vh;
-    height: auto;
-    position: relative;
+    padding-top: 140px;
+    padding-bottom: 80px;
+    background-color: #f5f1eb; /* Light cream fallback */
     display: flex;
     align-items: center;
-    padding-top: 120px;
-    padding-bottom: 80px;
+    position: relative;
     overflow: hidden;
 }
 
@@ -268,7 +271,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 .hero-bg .slide {
@@ -279,6 +282,7 @@ a {
     height: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
 }
@@ -287,104 +291,238 @@ a {
     opacity: 1;
 }
 
-.hero-bg .overlay {
+.hero-bg::after {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(30, 42, 61, 0.95), rgba(30, 42, 61, 0.7));
+    background-color: rgba(245, 241, 235, 0.85); /* Overlay to keep text perfectly legible */
+    z-index: 1;
 }
 
-.hero-content {
-    color: var(--white);
-    max-width: 800px;
+.hero-new-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
     position: relative;
     z-index: 2;
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 15px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid var(--accent);
-    color: var(--white);
+.hero-alert {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(217, 83, 79, 0.1);
+    color: #d9534f;
+    padding: 8px 16px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero-new-title {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.05;
+    color: #1e2a3d;
+    margin-bottom: 25px;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -1px;
+}
+
+.hero-new-desc {
+    font-size: 1.25rem;
+    color: #5a6662;
+    margin-bottom: 40px;
+    max-width: 90%;
+    line-height: 1.6;
+}
+
+.hero-new-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-red {
+    background-color: var(--accent); /* Muted gold */
+    color: white;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(194, 163, 92, 0.3);
+}
+
+.btn-red:hover {
+    background-color: #a38747; /* Darker muted gold */
+    color: white;
+}
+
+.btn-white-outline {
+    background-color: white;
+    color: var(--primary); /* Navy blue */
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
+.btn-white-outline:hover {
+    background-color: #f0f0f0;
+}
+
+/* Right Card */
+.hero-new-card {
+    position: relative;
+}
+
+
+.hero-card-inner {
+    background: #faf6ef; /* Light related cream color instead of pure white */
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(194, 163, 92, 0.15); /* Subtle gold border to tie it together */
+}
+
+.hero-card-header {
+    background-color: var(--accent); /* Muted gold */
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(194, 163, 92, 0.2);
+}
+
+.hero-card-subtitle {
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
-    margin-bottom: 20px;
 }
 
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
-    color: var(--white);
-    margin-bottom: 20px;
-}
-
-.hero-title span {
-    color: var(--white);
-    font-style: italic;
-    opacity: 0.9;
-}
-
-.hero-title {
-    font-size: 3.5rem;
+.hero-card-date {
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-    color: var(--white);
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-    color: var(--white);
-}
-
-.hero-details {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
-    animation: bounce 2s infinite;
-    opacity: 0.8;
-}
-.scroll-indicator span {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     margin-bottom: 5px;
 }
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-    40% { transform: translateY(-10px) translateX(-50%); }
-    60% { transform: translateY(-5px) translateX(-50%); }
+
+.hero-card-location {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.detail-item {
+.hero-card-pricing {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 500;
+    padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
-.detail-item .icon {
-    font-size: 20px;
+.regular-price {
+    font-size: 0.9rem;
+    color: #888;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+
+.offer-price {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent); /* Muted gold */
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.offer-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-green {
+    background-color: var(--accent); /* Muted gold */
+    color: white;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-weight: 600;
+}
+
+.btn-green:hover {
+    background-color: #a38747; /* Darker muted gold */
+    color: white;
+}
+
+.hero-card-alert {
+    background-color: rgba(217, 83, 79, 0.1);
+    color: #9a3324;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.hero-countdown {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    margin-bottom: 0 !important;
+}
+
+.hero-countdown .countdown-box {
+    flex: 1;
+    background-color: var(--accent); /* Muted gold */
+    color: var(--white);
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(194, 163, 92, 0.2);
+}
+
+.hero-countdown .countdown-box .val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.hero-countdown .countdown-box .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+@media (max-width: 992px) {
+    .hero-new-container {
+        grid-template-columns: 1fr;
+    }
+    .hero-new-title {
+        font-size: 3.5rem;
+    }
+    .hero-new-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .hero-new-buttons .btn {
+        text-align: center;
+    }
 }
 
 /* Sections General */
@@ -1631,4 +1769,130 @@ a {
         bottom: 75px;
         right: 10px;
     }
+}
+
+/* Custom Tooltip Styling */
+.custom-tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.custom-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: max-content;
+    max-width: 280px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 100;
+    pointer-events: none;
+    margin-bottom: 10px;
+}
+
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--primary) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-bottom: -2px;
+}
+
+.custom-tooltip:hover::after,
+.custom-tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Floating Background Icons */
+.floating-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Ignore mouse interactions */
+    overflow: hidden;
+}
+
+.floating-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(30, 42, 61, 0.4);
+    opacity: 0.7;
+    animation: floatIcon 6s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+.floating-icon i {
+    font-size: 1.2rem;
+    color: var(--primary); /* Blue */
+    opacity: 0.8;
+}
+
+@keyframes floatIcon {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Hero Detail Pill Buttons */
+.hero-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(194, 163, 92, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent);
+}
+
+.detail-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
 }

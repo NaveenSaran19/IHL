@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Typed.js
-    if (typeof Typed !== 'undefined') {
+    if (typeof Typed !== 'undefined' && document.getElementById('typed-subtitle')) {
         new Typed('#typed-subtitle', {
             strings: [
                 'Take control of your health while you still have the opportunity to shape it.',

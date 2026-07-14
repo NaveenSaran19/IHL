@@ -7,11 +7,65 @@
     <meta name="description" content="Take control of your health with the Institute of Health & Longevity Workshop. A science-backed journey to better health.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Coimbatore">
+    <meta name="geo.position" content="10.905;76.954">
+    <meta name="ICBM" content="10.905,76.954">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Institute of Health & Longevity">
+    <meta property="og:title" content="Institute of Health & Longevity (IHL)">
+    <meta property="og:description" content="Preventive Health Workshop in Coimbatore. Discover your health status, identify hidden risks early, and learn practical strategies for lifelong wellness.">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:image" content="https://yourdomain.com/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com/">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Institute of Health & Longevity (IHL)">
+    <meta name="twitter:description" content="Science-backed preventive health workshop in Coimbatore. Register now to take control of your long-term health.">
+    <meta name="twitter:image" content="https://yourdomain.com/assets/images/og-image.jpg">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0E5B4B">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <!-- Local Business Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Institute of Health & Longevity (IHL)",
+      "description": "Preventive Health Workshop focused on early disease detection, wellness, and longevity.",
+      "telephone": "+91 98946 69862",
+      "email": "ihl_admin@kaalaiyan.in",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "name": "Raguraman",
+        "telephone": "+91 98946 69862",
+        "email": "ihl_admin@kaalaiyan.in"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kalaivani College of Education, 249/3, Palathurai Road, Madukkarai",
+        "addressLocality": "Coimbatore",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "641105",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -39,38 +93,103 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero-new font-playfair">
+        <!-- Background Slider -->
         <div class="hero-bg">
             <div class="slide active" style="background-image: url('image/hero_bg_1.png')"></div>
             <div class="slide" style="background-image: url('image/hero_bg_2.png')"></div>
             <div class="slide" style="background-image: url('image/hero_bg_3.png')"></div>
-            <div class="overlay"></div>
         </div>
-        <div class="container hero-content">
-            <span class="badge">Institute of Health & Longevity</span>
-            <h1 class="hero-title">Act Before Disease <br><span>Decides for You.</span></h1>
-            <p class="hero-subtitle"><span id="typed-subtitle">Take control of your health while you still have the opportunity to shape it.</span></p>
-            <p class="hero-desc">A science-backed workshop that shows you exactly where you stand today, what risks are building quietly, and the first concrete step to a healthier life.</p>
-            
-            <div class="hero-details">
-                <div class="detail-item">
-                    <span class="icon"><i class="bi bi-calendar-event text-accent"></i></span>
-                    <span>26 July 2026</span>
+        <!-- Floating Background Icons -->
+        <div class="floating-icons-container">
+            <div class="floating-icon" style="top: 15%; left: 5%; animation-delay: 0s;">
+                <i class="bi bi-shield-check"></i> Preventive Healthcare
+            </div>
+            <div class="floating-icon" style="top: 75%; left: 8%; animation-delay: 1.5s;">
+                <i class="bi bi-person-badge"></i> Expert Consultation
+            </div>
+            <div class="floating-icon" style="top: 25%; right: 5%; animation-delay: 0.5s;">
+                <i class="bi bi-fingerprint"></i> DNA & Longevity
+            </div>
+            <div class="floating-icon" style="top: 85%; right: 10%; animation-delay: 2s;">
+                <i class="bi bi-heart-fill"></i> Heart Health
+            </div>
+            <div class="floating-icon" style="top: 10%; left: 45%; animation-delay: 1s;">
+                <i class="bi bi-graph-up-arrow"></i> Health Score
+            </div>
+            <div class="floating-icon" style="top: 85%; left: 40%; animation-delay: 2.5s;">
+                <i class="bi bi-droplet-fill"></i> Lab Assessment
+            </div>
+            <div class="floating-icon" style="top: 45%; left: 2%; animation-delay: 0.8s;">
+                <i class="bi bi-puzzle"></i> Brain Wellness
+            </div>
+            <div class="floating-icon" style="top: 55%; right: 3%; animation-delay: 1.2s;">
+                <i class="bi bi-apple"></i> Nutrition Plan
+            </div>
+            <div class="floating-icon" style="top: 70%; left: 48%; animation-delay: 2.2s;">
+                <i class="bi bi-water"></i> Hydration
+            </div>
+            <div class="floating-icon" style="top: 30%; left: 35%; animation-delay: 1.7s;">
+                <i class="bi bi-shield-fill-check"></i> Disease Prevention
+            </div>
+            <div class="floating-icon" style="top: 40%; right: 25%; animation-delay: 0.3s;">
+                <i class="bi bi-search"></i> Early Detection
+            </div>
+            <div class="floating-icon" style="top: 75%; right: 35%; animation-delay: 1.9s;">
+                <i class="bi bi-activity"></i> Active Lifestyle
+            </div>
+        </div>
+        <div class="container hero-new-container" style="position: relative; z-index: 2;">
+            <!-- Left Column -->
+            <div class="hero-new-content">
+                <div class="hero-alert" data-aos="fade-up" style="background-color: transparent; border: 1px solid #C2A35C; color: #1e2a3d; border-radius: 30px; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; padding: 6px 15px;">
+                    Institute of Health & Longevity
                 </div>
-                <div class="detail-item">
-                    <span class="icon"><i class="bi bi-geo-alt-fill text-accent"></i></span>
-                    <span>Kovaipudur, Coimbatore</span>
+                <h1 class="hero-new-title font-playfair" data-aos="fade-up" data-aos-delay="100" style="font-size: 3.5rem; margin-bottom: 10px;">Act Before Disease <br><span>Decides for You.</span></h1>
+                <h2 class="font-playfair" data-aos="fade-up" data-aos-delay="200" style="font-size: 2.2rem; color: #9a3324; margin-bottom: 20px; font-weight: 700;">Don't Wait for a Health Scare.</h2>
+                
+                <p class="hero-new-desc" data-aos="fade-up" data-aos-delay="300" style="font-weight: 600; font-size: 1.3rem; color: #1e2a3d; margin-bottom: 15px;">Take control of your health while you still have the opportunity to shape it.</p>
+                
+                <p class="hero-new-desc" data-aos="fade-up" data-aos-delay="400" style="margin-bottom: 25px;">A science-backed workshop that shows you exactly where you stand today, what risks are building quietly, and the first concrete step to a healthier life. Decode hidden risks. Protect your health. Build the body, energy and confidence to enjoy your next decade with strength and independence.</p>
+                
+                <div class="hero-details" data-aos="fade-up" data-aos-delay="500">
+                    <div class="detail-item custom-tooltip" data-tooltip="12 Days Remaining"><i class="bi bi-calendar-event"></i> 26 July 2026</div>
+                    <div class="detail-item custom-tooltip" data-tooltip="Kalaivani College of Education, 249/3, Palathurai Road, Madukkarai, Coimbatore, Tamil Nadu, 641105"><i class="bi bi-geo-alt-fill"></i> Kovaipudur, Coimbatore</div>
+                    <div class="detail-item custom-tooltip" data-tooltip="Remaining seats 36 available"><i class="bi bi-people-fill"></i> Limited Seats Available</div>
                 </div>
-                <div class="detail-item">
-                    <span class="icon"><i class="bi bi-people-fill text-accent"></i></span>
-                    <span>Limited Seats Available</span>
+                
+                <div class="hero-new-buttons" data-aos="fade-up" data-aos-delay="600">
+                    <button class="btn btn-red hero-cta register-trigger">Register Now — ₹4,999 Launch Offer</button>
+                    <a href="#workshop" class="btn btn-white-outline">See What's Included</a>
                 </div>
             </div>
-            <a href="#workshop" class="btn btn-outline-accent hero-cta">See What's Included</a>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <i class="bi bi-chevron-down"></i>
+
+            <!-- Right Column -->
+            <div class="hero-new-card" data-aos="zoom-in-left" data-aos-delay="300">
+                <div class="hero-card-inner">
+                    <div class="hero-card-header">
+                        <div class="hero-card-subtitle">WORKSHOP DATE</div>
+                        <div class="hero-card-date">26 July 2026</div>
+                        <div class="hero-card-location">Kovaipudur, Coimbatore</div>
+                    </div>
+                    
+                    <div class="hero-card-pricing">
+                        <div class="pricing-details">
+                            <div class="regular-price">Regular Value <del>₹7000+</del></div>
+                            <div class="offer-price">₹4,999</div>
+                            <div class="offer-label">Launch workshop offer</div>
+                        </div>
+                        <button class="btn btn-green register-trigger">Book Seat</button>
+                    </div>
+
+                    <div class="hero-card-alert">
+                        Limited seats available. Registration closes when capacity is full.
+                    </div>
+                    
+                    <div class="hero-countdown countdown-timer">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -361,11 +480,7 @@
                     </div>
                     <p style="font-size: 1.1rem; line-height: 1.6; color: var(--light-gray);">Helping people add life to years—not just years to life.</p>
                     
-                    <div style="margin-top: 30px;">
-                        <h4 style="margin-bottom: 15px; color: var(--accent); font-family: 'Outfit', sans-serif;">Workshop Begins In:</h4>
-                        <div class="countdown-timer" style="justify-content: flex-start; margin-bottom: 15px;"></div>
-                        <button class="btn btn-primary register-trigger">Register Now</button>
-                    </div>
+                    
                 </div>
                 
                 <div class="footer-contact">
