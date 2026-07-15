@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Vanilla Tilt
     if (typeof VanillaTilt !== 'undefined') {
-        VanillaTilt.init(document.querySelectorAll(".approach-card, .expert-card"), {
+        VanillaTilt.init(document.querySelectorAll(".approach-card, .expert-card, .hero-new-card"), {
             max: 10,
             speed: 400,
             glare: true,

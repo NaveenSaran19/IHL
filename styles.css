@@ -37,6 +37,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     color: var(--heading-color);
+    animation: continuousFade 4s ease-in-out infinite;
+}
+
+p, span, li, a {
+    animation: continuousFade 4s ease-in-out infinite;
+}
+
+@keyframes continuousFade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
 
 .font-playfair {
@@ -284,11 +294,13 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transform: scale(1.08);
+    transition: opacity 1.5s ease-in-out, transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hero-bg .slide.active {
     opacity: 1;
+    transform: scale(1);
 }
 
 .hero-bg::after {
@@ -358,6 +370,9 @@ a {
     padding: 15px 30px;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(194, 163, 92, 0.3);
+    animation: pulseGlow 2.5s infinite;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-red:hover {
@@ -459,6 +474,9 @@ a {
     border-radius: 30px;
     padding: 12px 25px;
     font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    animation: pulseGlow 3s infinite;
 }
 
 .btn-green:hover {
@@ -1857,9 +1875,39 @@ a {
 }
 
 @keyframes floatIcon {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+    0% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(3deg); }
+    66% { transform: translateY(-5px) rotate(-3deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(194, 163, 92, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(194, 163, 92, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(194, 163, 92, 0); }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.btn-primary, .btn-red, .btn-green {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after, .btn-red::after, .btn-green::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine 4s infinite;
 }
 
 /* Hero Detail Pill Buttons */
