@@ -189,67 +189,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Razorpay Integration
+    // Razorpay Integration (Payment Link Redirect)
     const razorpayBtn = document.getElementById('razorpayBtn');
     if (razorpayBtn) {
         razorpayBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            var options = {
-                "key": "rzp_test_T93qBIrsJeBWvV", // Test API Key
-                "secret": "13a7F7mACBIxfN9Nt3eZbCg8", // Test Key Secret (Note: usually used on the backend)
-                "amount": "499999", // Amount in subunits (Minimum is 100 for 1 INR)
-                "currency": "INR",
-                "name": "Institute of Health & Longevity",
-                "description": "Health & Longevity Workshop",
-                "handler": function (response){
-                    // Move to success step on success
-                    showStep('successStep', response.razorpay_payment_id);
-                },
-                "theme": {
-                    "color": "#1E2A3D"
-                }
-            };
-            if(window.Razorpay) {
-                try {
-                    var rzp1 = new window.Razorpay(options);
-                    rzp1.on('payment.failed', function (response){
-                        console.error("Payment Failed", response.error);
-                        // Fallback to QR Step
-                        showStep('qrStep');
-                    });
-
-                    // Razorpay uses native alert() for initialization errors (e.g. invalid test keys).
-                    // We temporarily intercept alert() to catch this and fallback gracefully.
-                    const originalAlert = window.alert;
-                    let rzpInitFailed = false;
-                    window.alert = function(msg) {
-                        if (msg && msg.toLowerCase().includes('payment failed')) {
-                            rzpInitFailed = true;
-                            console.warn('Intercepted Razorpay initialization failure.');
-                        } else {
-                            originalAlert(msg);
-                        }
-                    };
-
-                    rzp1.open();
-
-                    if (rzpInitFailed) {
-                        window.alert = originalAlert;
-                        showStep('qrStep');
-                    } else {
-                        setTimeout(() => {
-                            window.alert = originalAlert;
-                            if (rzpInitFailed) showStep('qrStep');
-                        }, 500);
-                    }
-                } catch(e) {
-                    console.error("Razorpay Init Error", e);
-                    showStep('qrStep');
-                }
-            } else {
-                // Fallback if Razorpay fails to load
-                showStep('qrStep');
-            }
+            // We no longer prevent default here because the button is wrapped in an <a target="_blank">
+            // Advance to the success step after a delay
+            setTimeout(() => {
+                showStep('successStep', 'Razorpay Link Payment');
+            }, 2000);
         });
     }
 
